@@ -53,7 +53,7 @@ public class WriteBehind<T, K> implements CacheUpdate<T, K> {
 
     public WriteBehind() {
         map = new HashMap<>();
-        databaseOperation = new MockDatabaseOperation<>();
+        databaseOperation = (DatabaseOperation<T, K>) new MockDatabaseOperation<>();
         threadPoolExecutor = new ThreadPoolExecutor(5, 10, 1000, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1000), new ThreadPoolExecutor.CallerRunsPolicy());
     }
 

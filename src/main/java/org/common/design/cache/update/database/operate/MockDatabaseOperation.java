@@ -7,30 +7,30 @@ import java.util.Random;
  * @author cartoon
  * @date 2022/5/9 17:44
  */
-public class MockDatabaseOperation<T, K> implements DatabaseOperation<T, K>{
+public class MockDatabaseOperation<T> implements DatabaseOperation<T, T>{
 
     private Random random = new Random();
 
     @Override
-    public T getData(K key) {
+    public T getData(T key) {
         threadSleep();
-        return null;
+        return key;
     }
 
     @Override
-    public boolean updateData(K key, T data) {
-        threadSleep();
-        return true;
-    }
-
-    @Override
-    public boolean addData(K key, T data) {
+    public boolean updateData(T key, T data) {
         threadSleep();
         return true;
     }
 
     @Override
-    public boolean removeData(K key) {
+    public boolean addData(T key, T data) {
+        threadSleep();
+        return true;
+    }
+
+    @Override
+    public boolean removeData(T key) {
         threadSleep();
         return true;
     }

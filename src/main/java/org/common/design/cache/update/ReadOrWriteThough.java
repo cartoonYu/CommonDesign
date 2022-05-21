@@ -48,7 +48,7 @@ public class ReadOrWriteThough<T, K> implements CacheUpdate<T, K>{
     }
 
     public ReadOrWriteThough() {
-        databaseOperation = new MockDatabaseOperation<>();
+        databaseOperation = (DatabaseOperation<T, K>) new MockDatabaseOperation<>();
         map = new HashMap<>();
     }
 }
